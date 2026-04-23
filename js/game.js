@@ -30,8 +30,6 @@ function animate()
 {
         context.clearRect(0, 0, canvas.width, canvas.height);
 
-        net();
-
         //The Score // 
         context.fillStyle = "#000000";
         context.font = "30px Arial";
@@ -145,18 +143,3 @@ function boundry()
 
 }
 
-function net()
-{
-    context.save();
-
-    context.strokeStyle = "#ff0000"; 
-    context.lineWidth = 10;
-
-    context.beginPath();
-
-    context.moveTo(canvas.width / 2, 0);
-    context.lineTo(canvas.width / 2, canvas.height);
-
-    context.stroke();
-    context.restore();
-}
