@@ -61,20 +61,23 @@ class Ball {
 
         // RIGHT WALL
         if (this.x + this.radius > this.canvas.width) {
-            
             this.x = canvas.width / 2;
             this.y = canvas.height / 2;
             this.color = "#e42222";
+            console.log("P1 Score", p1Score)
+            p1Score++;
+            // context.fillStyle = "#000000";
+            // context.font = "30px Arial";
+            // context.fillText("X", 325, 50);
         }
 
         // LEFT WALL
         if (this.x - this.radius < 0) {
-            //if it goes of screen it keeps
-            // going in the same direction
-            // after going to the middle
             this.x = canvas.width / 2;
             this.y = canvas.height / 2;
             this.color = "#3700ff";
+            console.log("P2 Score", p2Score)
+            p2Score++;
         }
 
         // BOTTOM WALL

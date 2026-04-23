@@ -4,6 +4,8 @@ var player;
 var player2;
 var ball;
 var timer;
+var p1Score = 0;
+var p2Score = 0;
 var interval = 1000 / 60; // 60 fps
 
 canvas = document.getElementById("myCanvas");
@@ -14,6 +16,10 @@ context = canvas.getContext("2d");
 player = new gameObject(10, 400 , 30, 150, "#ff00f2");
 player.vx = 0;
 player.vy = 0;
+
+
+
+
 
 player2 = new gameObject(1010, 400 , 30, 150, "#4245ff");
 player2.vx = 0;
@@ -27,6 +33,12 @@ timer = setInterval(animate, interval);
 function animate()
 {
         context.clearRect(0, 0, canvas.width, canvas.height);
+
+        //The Score // 
+        context.fillStyle = "#000000";
+        context.font = "30px Arial";
+        context.fillText("P1:"+ p1Score, 300, 50);
+        context.fillText("P2:"+ p2Score, 500, 50)
 
         //player 1
         if (w)
