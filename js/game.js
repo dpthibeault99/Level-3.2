@@ -11,15 +11,11 @@ var interval = 1000 / 60; // 60 fps
 canvas = document.getElementById("myCanvas");
 context = canvas.getContext("2d");
 
-// the paddle 
+// the paddles
 //---------------------(x, y, w, h, color)
 player = new gameObject(10, 400 , 30, 150, "#ff00f2");
 player.vx = 0;
 player.vy = 0;
-
-
-
-
 
 player2 = new gameObject(1010, 400 , 30, 150, "#4245ff");
 player2.vx = 0;
@@ -34,11 +30,13 @@ function animate()
 {
         context.clearRect(0, 0, canvas.width, canvas.height);
 
+        net();
+
         //The Score // 
         context.fillStyle = "#000000";
         context.font = "30px Arial";
-        context.fillText("P1:"+ p1Score, 300, 50);
-        context.fillText("P2:"+ p2Score, 500, 50)
+        context.fillText("P1:"+ p1Score, 400, 50);
+        context.fillText("P2:"+ p2Score, 550, 50)
 
         //player 1
         if (w)
@@ -145,4 +143,20 @@ function boundry()
         player2.y = player2.height / 2;
         }
 
+}
+
+function net()
+{
+    context.save();
+
+    context.strokeStyle = "#ff0000"; 
+    context.lineWidth = 10;
+
+    context.beginPath();
+
+    context.moveTo(canvas.width / 2, 0);
+    context.lineTo(canvas.width / 2, canvas.height);
+
+    context.stroke();
+    context.restore();
 }
